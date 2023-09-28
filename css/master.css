@@ -6,7 +6,16 @@
 }
 
 body {
-  background-color: white;
+  background-color: #555;
+}
+
+#display {
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 .card {

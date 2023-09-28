@@ -39,26 +39,30 @@ const displayWeatherData = async (cityName) => {
         var convertedDate = date.toString().replace(/(\d\d\d\d)(\d\d)(\d\d)/g, '$1/$2/$3');
 
         return `
-        <img src="./images/weather/${weather}.png" class="weather-icon">
-        <h1 class="date">${convertedDate}</h1>
-        <h2 class="city">${cityName}</h2>
-        <div class="details">
-            <div class="col1">
-                <img src="./images/icons/icons8-thermometer-100.png">
-                <div>
-                    <p class="tempMax">${temp2m.max}</p>
-                    <p>Max Temp</p>
-                </div>
-                <div>
-                    <p class="tempMin">${temp2m.min}</p>
-                    <p>Min Temp</p>
-                </div>
-            </div>
-            <div class="col2">
-                <img src="./images/icons/icons8-wind-100.png">
-                <div>
-                    <p class="windy">${wind10m_max} kph</p>
-                    <p>Wind Speed</p>
+        <div class="card">
+            <div class="weather">
+                <img src="./images/weather/${weather}.png" class="weather-icon">
+                <h1 class="date">${convertedDate}</h1>
+                <h2 class="city">${cityName}</h2>
+                <div class="details">
+                    <div class="col1">
+                        <img src="./images/icons/icons8-thermometer-100.png">
+                        <div>
+                            <p class="tempMax">${temp2m.max}</p>
+                            <p>Max Temp</p>
+                        </div>
+                        <div>
+                            <p class="tempMin">${temp2m.min}</p>
+                            <p>Min Temp</p>
+                        </div>
+                    </div>
+                    <div class="col2">
+                        <img src="./images/icons/icons8-wind-100.png">
+                        <div>
+                            <p class="windy">${wind10m_max} kph</p>
+                            <p>Wind Speed</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>`;
