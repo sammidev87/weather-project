@@ -1,12 +1,14 @@
 const cityCoordinatesAPI = './city_coordinates.json';
-const display = document.querySelector('#display');
+const display = document.querySelector('#display'); // div that displays the weather
 
+// grabs the location data in city_coordinates.json
 const getLocationData = async () => {
     const data = await fetch(cityCoordinatesAPI);
     const jsonData = await data.json();
     return jsonData;
 }
 
+// gets the location data for the specified city
 const getCityData = async (cityName) => {
     const payload = await getLocationData();
     const filteredPayload = payload.filter((cityData) => {
@@ -25,6 +27,7 @@ const getCityData = async (cityName) => {
     return filteredPayload;
 }
 
+// uses the spicific location data to return the 7 day forcast
 const getWeatherData = async (cityName) => {
     const filteredPayload = await getCityData(cityName);
     const res = await fetch(`http://www.7timer.info/bin/api.pl?lon=${filteredPayload[ 0 ].longitude}&lat=${filteredPayload[ 0 ].latitude}&product=civillight&output=json`);
@@ -32,6 +35,7 @@ const getWeatherData = async (cityName) => {
     return data.dataseries;
 }
 
+// takes the 7 day forcast and displays it
 const displayWeatherData = async (cityName) => {
     const weatherData = await getWeatherData(cityName);
     const dataDisplay = weatherData.map((object) => {
