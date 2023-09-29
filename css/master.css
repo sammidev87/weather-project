@@ -6,7 +6,31 @@
 }
 
 body {
-  background-color: #555;
+  background-color: white;
+}
+
+.page-header {
+  background-color: white;
+  height: 60px;
+  border-bottom: 2px solid black;
+}
+
+.page-header .header-wrapper {
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-header .title {
+  max-width: inherit;
+  position: relative;
+  padding: 15px 10px 0 0;
+  width: 200px;
+  height: 50px;
+  text-decoration: none;
+  font-size: 1.5em;
+  color: black;
+  text-shadow: 2px 0px 20px purple;
 }
 
 #display {
@@ -23,9 +47,8 @@ body {
 }
 
 .card {
-  width: 90%;
-  max-width: 470px;
-  background: linear-gradient( 135deg, 	#feca40, #3366ff);
+  width: 70%;
+  background: linear-gradient( 135deg, 	purple, black);
   color: #fff;
   margin: 50px auto 0;
   border-radius: 20px;
@@ -42,9 +65,10 @@ body {
 }
 
 .search select {
+  width: 50%;
   border: 0;
   outline: 0;
-  background: #feca40;
+  background: black;
   border: 2px solid white;
   color: white;
   padding: 10px 25px;
@@ -52,7 +76,6 @@ body {
   border-radius: 30px;
   flex: 1;
   margin-right: 16px;
-  font-size: 18px;
 }
 
 .weather-icon {
@@ -77,6 +100,10 @@ body {
   padding: 0 20px;
 }
 
+.col1 {
+  padding: 15px 15px;
+}
+
 .col1 img {
   width: 50px;
   height: 50px;
@@ -93,6 +120,10 @@ body {
   padding-top: 15px;
 }
 
+.col2 {
+  padding: 15px 15px;
+}
+
 .col2 img {
   width: 50px;
   height: 50px;
@@ -103,9 +134,16 @@ body {
 }
 
 .panel-footer {
-  max-width: 470px;
-  color: #fff;
-  margin: 50px auto 0;
   padding: 40px 35px;
   text-align: center;
+  text-shadow: 2px 0px 20px purple;
+}
+
+.panel-footer .attributes a {
+  color: black;
+  text-decoration: none;
+}
+
+.panel-footer .copyright {
+  padding-top: 15px;
 }
