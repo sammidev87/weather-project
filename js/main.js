@@ -1,5 +1,6 @@
 const cityCoordinatesAPI = './city_coordinates.json';
 const display = document.querySelector('#display'); // div that displays the weather
+const locationDisplay = document.querySelector('#search');
 
 // grabs the location data in city_coordinates.json
 const getLocationData = async () => {
@@ -8,7 +9,23 @@ const getLocationData = async () => {
     return jsonData;
 }
 
-// gets the location data for the specified city
+const displayLocationData = async () => {
+    const payload = await getLocationData();
+    const loopedData = payload.map((object) => {
+        const { city, country } = object;
+
+        return `
+        <option value="${city}">${city}, ${country}</option>`
+    })
+    locationDisplay.innerHTML = loopedData;
+}
+
+displayLocationData();
+
+locationDisplay.addEventListener('change', (event) => {
+    const city = event.target.value;
+
+    // gets the location data for the specified city
 const getCityData = async (cityName) => {
     const payload = await getLocationData();
     const filteredPayload = payload.filter((cityData) => {
@@ -70,9 +87,10 @@ const displayWeatherData = async (cityName) => {
                 </div>
             </div>
         </div>`;
-    })
+    }).join('')
 
     display.innerHTML = dataDisplay;
 }
 
-displayWeatherData("Amsterdam");
+displayWeatherData(city);
+})
