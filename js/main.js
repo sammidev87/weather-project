@@ -47,7 +47,7 @@ const getCityData = async (cityName) => {
 // uses the spicific location data to return the 7 day forcast
 const getWeatherData = async (cityName) => {
     const filteredPayload = await getCityData(cityName);
-    const res = await fetch(`http://www.7timer.info/bin/api.pl?lon=${filteredPayload[ 0 ].longitude}&lat=${filteredPayload[ 0 ].latitude}&product=civillight&output=json`);
+    const res = await fetch(`https://www.7timer.info/bin/api.pl?lon=${filteredPayload[ 0 ].longitude}&lat=${filteredPayload[ 0 ].latitude}&product=civillight&output=json`);
     const data = await res.json();
     return data.dataseries;
 }
